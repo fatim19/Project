@@ -4,6 +4,8 @@
      <link rel="stylesheet" href="css/rent.css">
      <link rel="stylesheet" href="css/style2.css">
     <title> Rent page</title>
+    <?php require_once 'check_login_custom.php'; ?>
+    <?php require_once 'connect.php'; ?>
     </head>
 
     <nav class="nav"> 
@@ -36,31 +38,40 @@
 
   
 </nav>
-
-    <div class="container">
+<div class="container">
         <h2>Rent page</h2>
      <section class="Rent">
-        <div class="card">
-          <img src="img/camera.jpg" alt="camera" style="width: 250px;">
-          <h1>Camera</h1>
-          <p class="price">$19.99</p>
-          <p>Some text about the jeans..</p>
-          <p><button>Add to Cart</button></p>
-        </div>
-        <div class="card">
-            <img src="img/projector.jpg" alt="projector" style="width: 250px;">
-            <h1>Projector</h1>
-            <p class="price">$25.50</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-          </div>
-          <div class="card">
-            <img src="img/vacuumcleaner.jpg" alt="vacuum cleaner" style="width: 250px;">
-            <h1>Vacuum cleaner</h1>
-            <p class="price">$30.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-          </div>
+<?php
+if(isset($_POST['provider']))
+{
+  $select = mysqli_query($conn, "SELECT * FROM rent where id_p = '$_POST[provider]'");
+
+  while($row = mysqli_fetch_assoc($select)){
+
+?>
+
+      <div class="card">
+        <img src="img/<?php echo $row['image']; ?>" alt="camera" style="width: 250px;">
+        <h1><?php echo $row['name']; ?></h1>
+        <p class="price"><?php echo $row['price']; ?></p>
+        <?php
+            if($row['statuse'] == 'Accept')
+            {
+              echo '<p><button>Add to Cart</button></p>';
+            }
+            else
+            {
+              echo '<p>Unavailable</p>';
+            }
+        ?>
+      </div>
+  
+
+<?php
+};
+}
+
+?>
      </section>    
     
     </div>

@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
     $pass = md5($_POST['password']);
     $cpass = md5($_POST['cpassword']);
    
-    $sgl="update 'provider_form' set $id"
+    $sgl="update 'provider_form' set $id";
     $select = " SELECT * FROM provider_form WHERE email = ' $email' && password = '$pass' ";
     $result = mysqli_query($conn, $select);
     if(mysqli_num_rows($result) > 0){
