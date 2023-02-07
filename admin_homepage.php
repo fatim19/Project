@@ -61,8 +61,6 @@
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
       <th scope="col">Password</th>
-      <th scope="col">user_type</th>
-      <th scope="col">operation</th>
     </tr>
   </thead>
   <tbody>
@@ -77,7 +75,6 @@ $result = mysqli_query($conn, $select);
        $email=$row['email'];
        $phone=$row['phone'];
        $password=$row['password'];
-       $user_type=$row['user_type'];
        
        echo '<tr>
        <th scope="row">'.$id.'</th>
@@ -85,11 +82,7 @@ $result = mysqli_query($conn, $select);
        <td>'.$email.'</td>
        <td>'.$phone.'</td>
        <td>'.$password.'</td>
-       <td>'.$user_type.'</td>
-       <td>
-       <button class="btn btn-Primary"><a href="update.php?updateid='.$id.'" class="text-light"> Update</a></button>
-       <button class="btn btn-danger"><a href="delete.php?deletedid='.$id.'" class="text-light"> Delete</a></button>
-       </td>
+       
 
      </tr>'; 
   }

@@ -11,9 +11,10 @@
 		
 		<div id="mySidenav" class="sidenav">
 		<p class="logo"><span></span>Machines station</p>
-	  <a href="profile.php"class="icon-a"><i class="fa fa-home"></i>Home</a>
-      <a href="#"class="icon-a"><i class="fa fa-user icons"></i>   Accounts</a>
-	  <a href="machinesinformation.php"class="icon-a"><i class="fa fa-list-alt icons"></i>  Add your Service</a>
+	  <a href="index2.html"class="icon-a"><i class="fa fa-home"></i>Home</a>
+      <a href="#"class="icon-a"><i class="fa fa-user icons"></i>   Profile</a>
+	  <a href="machinesinformation.php"class="icon-a"><i class="fa fa-plus-circle"></i>  Add your Service</a>
+	  <a href="machinesinformation.php"class="icon-a"><i class="fa fa-plus-circle"></i> Add rent Machines</a>
 	  <a href="#"class="icon-a"><i class="fa fa-shopping-bag icons"></i>Orders</a>
 
 	</div>

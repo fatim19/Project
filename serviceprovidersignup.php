@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
         }else{
             $insert = "INSERT INTO provider_form(name, email, phone, city, gender, password) VALUES('$name', '$email', '$phone', '$city', '$gender', '$pass')";
             mysqli_query($conn, $insert);
-            header('location:provider_page.php');
+            header('location:profile.php');
         }
 
     }

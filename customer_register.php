@@ -9,7 +9,6 @@ if(isset($_POST['submit'])){
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
     $pass = md5($_POST['password']);
     $cpass = md5($_POST['cpassword']);
-    $user_type = $_POST['user_type'];
 
     $select = " SELECT * FROM user_form WHERE email = ' $email' && password = '$pass' ";
     $result = mysqli_query($conn, $select);
@@ -22,7 +21,7 @@ if(isset($_POST['submit'])){
             $error[] = 'password not matched!';
   
         }else{
-            $insert = "INSERT INTO user_form(name, email, phone, password, user_type) VALUES('$name', '$email', '$phone', '$pass', '$user_type')";
+            $insert = "INSERT INTO user_form(name, email, phone, password) VALUES('$name', '$email', '$phone', '$pass')";
             mysqli_query($conn, $insert);
             header('location:index2.html');
         }
@@ -99,11 +98,7 @@ if(isset($_POST['submit'])){
         <input type="phone" name="phone" required placeholder="Enter your phone">
         <input type="password" name="password" required placeholder="Enter your password">
         <input type="password" name="cpassword" required placeholder="Confirm password">
-        <select name="user_type">
-          <option value="user">Customer</option>
-          <option value="provider">Service Provider</option>
-          <option value="admin">Admin</option>
-</select>
+       
 <input type="submit" name="submit" value="register now" class="form-btn">
 <p> already have an account? <a href="login.php"> login now</a></p>
 
