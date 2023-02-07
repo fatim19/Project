@@ -15,7 +15,7 @@
       <a href="#"class="icon-a"><i class="fa fa-user icons"></i>   Profile</a>
 	  <a href="machinesinformation.php"class="icon-a"><i class="fa fa-plus-circle"></i>  Add your Service</a>
 	  <a href="machinesinformation.php"class="icon-a"><i class="fa fa-plus-circle"></i> Add rent Machines</a>
-	  <a href="#"class="icon-a"><i class="fa fa-shopping-bag icons"></i>Orders</a>
+	  <a href="#"class="icon-a"><i class="fa fa-shopping-bag icons"></i>Order</a>
 
 	</div>
 	<div id="main">
