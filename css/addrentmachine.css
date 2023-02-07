@@ -1,0 +1,155 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+.btn{
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    padding: 1rem 3rem;
+    background: green;
+    color: white;
+}
+
+
+.btn:hover{
+    background: black;
+
+
+}
+
+.message{
+    display: block;
+    background: greenyellow;
+    padding: 1.5rem 1rem;
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 2rem; 
+    text-align: center;
+ }
+
+.container{
+    max-width: 1200px;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.admin-machine-form-container form{
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 8px;
+    background: wheat;
+
+}
+
+.admin-machine-form-container form h3{
+   text-transform: uppercase;
+   color: black;
+   margin-bottom: 1rem;
+   text-align: center;
+   font-size: 2.5rem; 
+}
+
+.admin-machine-form-container form .box{
+    width: 100%;
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.7rem;
+    margin: 1rem 0;
+    background: grey; 
+    text-transform: none;
+}
+
+.machine-display{
+    margin: 2rem 0;
+}
+
+.machine-display .machine-display-table{
+    width: 100%;
+}
+
+.machine-display .machine-display-table thead{
+    padding:1rem ;
+    font-size: 2rem;
+    background: grey;
+}
+
+.machine-display .machine-display-table th{
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+
+.machine-display .machine-display-table td{
+    padding: 1rem;
+    font-size: 2rem;
+    border-bottom: violet;
+}
+
+.machine-display .machine-display-table .btn:first-child{
+    margin-top: 0;
+}
+
+.machine-display .machine-display-table .btn:last-child{
+    background: crimson;
+}
+
+.machine-display .machine-display-table .btn:last-child:hover{
+    background: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:991px){
+    
+    html{
+        font-size: 55%;
+    }
+
+
+}
+
+@media (max-width:768px){
+
+    .machine-display{
+        overflow: scroll;
+    }
+    
+    .machine-display .machine-display-table{
+        width: 80rem;
+    }
+
+}
+
+@media (max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+}

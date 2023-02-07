@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Service provider Registration
+  </title>
+
+  <link rel="stylesheet" href="css/style2.css">
+</head>
+
+<body>
+
+<nav class="nav"> 
+
+        <div class="nav-header">
+        
+    <div class="nav-links">
+       <ul> 
+        
+        <form action="connect.php" method="post">
+        <a><img src="img/Machinestation.png" class="logo" href="index2.html"></a>
+        <li><a href="index2.html" class="split">Machines Station</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><div class="dropdown">
+            <button class="dropbtn">Signup
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="serviceprovidersignup.html">Signup as a service provider</a>
+              <a href="customersignup.html">Signup as a customer</a>
+            </div>
+          </li>
+        <li><a href="service type.html">Services</a></li>
+        <li><a href="catagory.html">catagory</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        
+    </ul> 
+    </div>
+
+<form action="action_page.php" style="border:1px solid #ccc">
+    <div class="container">
+      <h1>Service provider Registration</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="Enter full name" name="name" required>
+
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <label for="phone"><b>phone</b></label>
+      <input type="tel" placeholder="Enter phone number" name="phone" required maxlength="10">
+
+       
+    
+      <label for="city"><b>City</b></label>
+<select name="city" id="city">
+
+  <option value="Riyadh">Riyadh</option>
+  <option value="Jeddah">Jeddah</option>
+  <option value="Al-Ahsa">Al-Ahsa</option>
+  <option value="Dammam">Dammam</option>
+  <option value="Al khobar">Al khobar</option>
+  <option value="Al Qatif">Al Qatif</option>
+  <option value="Mecca">Mecca</option>
+  <option value="Medina">Medina</option>
+  <option value="Hail">Hail</option>
+  <option value="Taif">Taif</option>
+  <option value="Tabuk">Tabuk</option>
+  <option value="Al Kharj">Al Kharj</option>
+  <option value="Najran">Najran</option>
+  <option value="Yanbu">Yanbu</option>
+  <option value="Abha">Abha</option>
+  <option value="Arar">Arar</option>
+  <option value="Jazan">Jazan</option>
+  <option value="Sakaka">Sakaka</option>
+  <option value="Al Bahah">Al Bahah</option>
+  <option value="Abha">Abha</option>
+  <option value="Arar">Arar</option>
+  <option value="Abqaiq">Abqaiq</option>
+  
+  
+  <option value="Other">Other</option>
+  <input type="text" placeholder="other city" name="city" >
+</select>
+
+<label for="gender"><b>Gender</b></label>
+  <select name="gender" id="gender">
+    <option value="Female">Female</option>
+    <option value="Male">Male</option>
+     
+  </select>
+  <br><br>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required minlength="8">
+  
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+  
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+  
+      
+  
+      <div class="clearfix">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</body>
+  </html>

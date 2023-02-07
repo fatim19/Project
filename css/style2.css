@@ -1,0 +1,206 @@
+
+  
+body {
+  height: 100vh;
+  position: relative;
+  background-image: radial-gradient(circle, #dbd2cf, #dacaca, #d5c3ca, #ccbdcd, #bbb9d0, #b5bcd3, #afbfd5, #aac2d6, #b4cbdc, #bed3e1, #c9dce7, #d4e4ed);
+
+  color: white;
+  }
+  
+
+    .nav {
+        height: 50px;
+        width: 100%;
+        background-color: #eec4b5;
+        position: relative;
+        
+      }
+    
+    
+    .logo {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        margin-right:auto ;
+      
+
+    }
+
+    .nav-link a.split {
+      float: left;
+      background-color: #04AA6D;
+      color: white;
+      left: 0;
+      bottom: 0;
+    }
+
+    
+    .logo-img{
+      position: relative;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
+      top: 2%;
+
+    }
+
+    .midd h3{
+      text-align: center;
+      color: #9DB6CF;
+      font-size: 30px;
+    }
+    .midd p{
+      text-align: center;
+      font-size: 20px;
+    }
+    
+
+   .button{ 
+    background-color: #DBD2CF;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 8px;
+  font-size: 28px;
+  transition-duration: 0.4s;
+  margin: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transform: translateY(-50%);
+
+   }
+
+   .button:hover {
+    background-color: #9DB6CF; 
+    color: white;
+  }
+
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #eec4b5;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #9DB6CF on hover */
+li a:hover {
+  background-color: #9DB6CF;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+.container h2{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 35px;
+  margin-bottom: 25px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.container .services{
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.container .services .card{
+  width: 330px;
+  text-align: center;
+  background: #D4E4ED;
+  padding: 20px 15px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.info-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #DBD2CF;
+  color: white;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color:#eec4b5;
+  color: white;
+  text-align: center;
+}
+ 
+/* Add a dark background on topnav links and the dropdown button on hover */
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+}
+
+/* Add a grey background to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: #9DB6CF;
+}
+
+/* Show the dropdown menu when the user moves the mouse over the dropdown button */
+.dropdown:hover .dropdown-content {
+  display: block;
+}

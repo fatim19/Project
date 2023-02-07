@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Servisce provider</title>
+    <link rel="stylesheet" href="css/machinesinformation.css">
+    <link rel="stylesheet" href="css/style2.css">   
+</head>
+<body>
+    <nav class="nav"> 
+
+        <div class="nav-header">
+        
+    <div class="nav-links">
+       <ul> 
+        
+        <form action="connect.php" method="post">
+        <a><img src="img/Machinestation.png" class="logo" href="index2.html"></a>
+        <li><a href="index2.html" class="split">Machines Station</a></li>
+        <li><a href="login.php">Login</a></li>
+        <li><div class="dropdown">
+            <button class="dropbtn">Signup
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="serviceprovidersignup.php">Signup as a service provider</a>
+              <a href="customer_register.php">Signup as a customer</a>
+            </div>
+          </li>
+        <li><a href="service type.html">Services</a></li>
+        <li><a href="catagory.html">catagory</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        
+    </ul> 
+    </div>
+
+  
+</nav>
+   <div class="maa">
+
+<h1>Machine information</h1>
+<p>Machine name</p>
+<input type="text" placeholder="Enter Machine name" name="machine_name"> 
+<p>Machine type </p>
+<input type="text" placeholder="Enter Machine type" name="machine_type"> 
+<p>Machine version year</p>
+<input type="text" placeholder="Enter version year" name="machine_version_year">
+<p>your city</p>
+<input type="text" placeholder="Enter your city" name="your_city">
+<p>Short description about machine </p>
+<input type="text" placeholder="Enter Short description" name="description">
+
+<p>upload photo for your machine</p>
+<input type="file" placeholder="upload photo machine">
+
+<p></p><button>Submit</button></p>
+</body>
+</html>

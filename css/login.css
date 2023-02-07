@@ -1,0 +1,107 @@
+body{
+    
+        height: 100vh;
+        position: relative;
+        background-image: radial-gradient(circle, #dbd2cf, #dacaca, #d5c3ca, #ccbdcd, #bbb9d0, #b5bcd3, #afbfd5, #aac2d6, #b4cbdc, #bed3e1, #c9dce7, #d4e4ed);
+    
+        color: white;
+    
+}
+.form {
+    width: 420px;
+    height: 550px;
+    background:#d8e5ec;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    box-sizing: border-box;
+    transform: translate(-50%,-50%);
+    border-radius: 8px;
+}
+.b{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    top: -50px;
+    left: 40%;
+    right: 40%;
+    position: absolute;
+    text-align: center;padding: 5px;
+
+}
+
+h1 {
+    margin-top: 1.5em;
+    font-size: 40px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #9DB6CF;
+    text-shadow: 2px 2px 4px #fff;
+}
+.form p {
+margin-bottom: 10px;
+margin-left: 12px;
+font-weight: bold;
+text-transform: capitalize;
+color: #9DB6CF;
+
+}
+
+.form input {
+    height: 40px;
+    width: 90%;
+    margin-bottom: 20px;
+    margin-left: 12px;
+    font-size: 16px;
+    border-radius: 8px; 
+}
+
+
+.form button{
+    margin-left: 35%;
+    margin-top: 20px;
+    width: 25%;
+    height: 40px;
+    text-transform: capitalize;
+    font-size: 18px;
+    color: #9DB6CF;
+    background: #fff;
+    border-radius: 8px;
+  
+    
+ 
+}
+
+button:hover {
+background: rgb(98, 122, 124,);
+color: rgb(9, 9, 9);
+height: 44px;
+width: 27%;
+font-size: 20px;
+
+
+
+}
+input:hover {
+    width: 95%;
+    height: 43px;
+
+}
+.forget{
+    text-align: center;
+}
+label{
+    margin-bottom: 20px;
+    margin-left: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: black;
+}
+select{
+    height: 40px;
+    width: 90%;
+    margin-bottom: 20px;
+    margin-left: 12px;
+    font-size: 16px;
+    border-radius: 8px; 
+}
