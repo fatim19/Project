@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 05, 2023 at 08:20 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: 127.0.0.1:3306
+-- Generation Time: Feb 07, 2023 at 10:51 PM
+-- Server version: 8.0.31
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,12 +27,14 @@ SET time_zone = "+00:00";
 -- Table structure for table `add_machines`
 --
 
-CREATE TABLE `add_machines` (
-  `id` int(255) NOT NULL,
+DROP TABLE IF EXISTS `add_machines`;
+CREATE TABLE IF NOT EXISTS `add_machines` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `version` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `description` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -40,15 +42,17 @@ CREATE TABLE `add_machines` (
 -- Table structure for table `provider_form`
 --
 
-CREATE TABLE `provider_form` (
-  `id` int(255) NOT NULL,
+DROP TABLE IF EXISTS `provider_form`;
+CREATE TABLE IF NOT EXISTS `provider_form` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL DEFAULT 'user',
   `password` varchar(255) NOT NULL,
-  `gender` varchar(255) NOT NULL DEFAULT 'user'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `gender` varchar(255) NOT NULL DEFAULT 'user',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `provider_form`
@@ -60,7 +64,8 @@ INSERT INTO `provider_form` (`id`, `name`, `email`, `phone`, `city`, `password`,
 (3, 'Noor', 'sdj@gmail.com', '0508494530', 'Arar', 'f7c0e071db137f5ae65382041c7cef4b', 'Female'),
 (4, 'Saleh', 'syu@gmail.com', '0508437430', 'Al Bahah', '8f60c8102d29fcd525162d02eed4566b', 'Male'),
 (5, 'Saad', 'sged@gmail.com', '0508487930', 'Najran', '02c425157ecd32f259548b33402ff6d3', 'Male'),
-(6, 'Eman', 'sht@gmail.com', '0508407830', 'Jazan', '670da91be64127c92faac35c8300e814', 'Female');
+(6, 'Eman', 'sht@gmail.com', '0508407830', 'Jazan', '670da91be64127c92faac35c8300e814', 'Female'),
+(7, 'Mohammad Alzahrani', 'FmaazDeveloper@gmail.com', '0563272784', 'Riyadh', '81dc9bdb52d04dc20036dbd8313ed055', 'Male');
 
 -- --------------------------------------------------------
 
@@ -68,20 +73,26 @@ INSERT INTO `provider_form` (`id`, `name`, `email`, `phone`, `city`, `password`,
 -- Table structure for table `rent`
 --
 
-CREATE TABLE `rent` (
-  `id` int(255) NOT NULL,
+DROP TABLE IF EXISTS `rent`;
+CREATE TABLE IF NOT EXISTS `rent` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_p` int DEFAULT NULL,
   `name` varchar(255) NOT NULL,
   `price` varchar(255) NOT NULL,
   `time` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `image` varchar(255) NOT NULL,
+  `statuse` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `rent`
 --
 
-INSERT INTO `rent` (`id`, `name`, `price`, `time`, `image`) VALUES
-(13, 'Camera canon', '89', '16:05', '3D.jpg');
+INSERT INTO `rent` (`id`, `id_p`, `name`, `price`, `time`, `image`, `statuse`) VALUES
+(13, 1, 'Camera', '100', '16:05', '4551689.png', 'Accept'),
+(27, 7, 'moahammad', '5', '23:52', '4551689.png', 'Reject'),
+(29, 1, 'Khaled', '31', '00:38', '4551689.png', 'Accept');
 
 -- --------------------------------------------------------
 
@@ -89,14 +100,16 @@ INSERT INTO `rent` (`id`, `name`, `price`, `time`, `image`) VALUES
 -- Table structure for table `user_form`
 --
 
-CREATE TABLE `user_form` (
-  `id` int(255) NOT NULL,
+DROP TABLE IF EXISTS `user_form`;
+CREATE TABLE IF NOT EXISTS `user_form` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `phone` int(10) NOT NULL,
+  `phone` int NOT NULL,
   `password` varchar(255) NOT NULL,
-  `user_type` varchar(255) NOT NULL DEFAULT 'user'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `user_type` varchar(255) NOT NULL DEFAULT 'user',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `user_form`
@@ -117,63 +130,9 @@ INSERT INTO `user_form` (`id`, `name`, `email`, `phone`, `password`, `user_type`
 (12, 'Jamal', 'sgt@gmail.com', 508442930, '3b6281fa2ce2b6c20669490ef4b026a4', 'user'),
 (13, 'Laila', 'sge@gmail.com', 508462930, '562b530cff1f5bca3b1a4c1ad4ad9962', 'user'),
 (14, 'Bayan', 'sh@gmail.com', 508402930, '65ba841e01d6db7733e90a5b7f9e6f80', 'user'),
-(15, 'Ali', 'syk@gmail.com', 502348530, '74b87337454200d4d33f80c4663dc5e5', 'user');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `add_machines`
---
-ALTER TABLE `add_machines`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `provider_form`
---
-ALTER TABLE `provider_form`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `rent`
---
-ALTER TABLE `rent`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_form`
---
-ALTER TABLE `user_form`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `add_machines`
---
-ALTER TABLE `add_machines`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `provider_form`
---
-ALTER TABLE `provider_form`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `rent`
---
-ALTER TABLE `rent`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT for table `user_form`
---
-ALTER TABLE `user_form`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+(15, 'Ali', 'syk@gmail.com', 502348530, '74b87337454200d4d33f80c4663dc5e5', 'user'),
+(16, 'Mohammad Alzahrani', 'FmaazDeveloper@gmail.com', 563272784, '81dc9bdb52d04dc20036dbd8313ed055', 'user'),
+(17, 'Mohammad Alzahrani', 'FmaazDeveloper@gmail.com', 563272784, '202cb962ac59075b964b07152d234b70', 'user');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
