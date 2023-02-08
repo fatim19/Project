@@ -1,7 +1,7 @@
 <?php
 
 @include 'connect.php';
-require_once 'check_login_admin.php';
+require_once 'check_login_provider.php';
 
 if(isset($_POST['add_machine'])){
 

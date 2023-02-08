@@ -5,7 +5,7 @@
 		<link rel="stylesheet" href="css/profile.css" type="text/css"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	    <?php
-		require_once 'check_login_admin.php';
+		require_once 'check_login_provider.php';
 		require_once 'connect.php';
 		?>
 	</head>
@@ -33,7 +33,7 @@
 		<div class="col-div-6">
 		<div class="profile">
 			<img src="images/user.png" class="pro-img" />
-			<p><?php echo $_SESSION['admin_name']; ?><span>UI / UX DESIGNER</span></p>
+			<p><?php echo $_SESSION['provider_name']; ?><span>UI / UX DESIGNER</span></p>
 		</div>
 	</div>
 		<div class="clearfix"></div>

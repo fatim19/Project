@@ -1,55 +1,52 @@
+<html>
+
 <?php
-include('includes/header.php');
+require_once 'head.php';
 ?>
 
-<div class="container-fluid px-4">
-    <h1 class="mt-4">Dashboard</h1>
-    <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Dashboard</li>
-  </ol>
-  <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Service Provider</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="serviceprovider_registering.php">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Customer</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="admin_homepage.php">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Order</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Machines</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="machines_status.php">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<body>
+
+
+<div class="about-section">
+  <img src="img/Machinestation.png" class="logo-img">
+
+  <h3>Machaines Station</h3> <p>provid service and machiens</p>
+  <p>enjoy with us</p></div>
+
+<nav class="midd">
+  
+  <div class="container">
+    <h2>Our Services</h2>
+    <section class="services">
+        <div class="card">
+            <div class="content">
+                <div class="icon"><i class="fa fa-laptop"></i></div>
+                <div class="title"><a href="service2.html">Services Provider</div></a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, reprehenderit.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <div class="icon"><i class="fa fa-mobile"></i></div>
+                <div class="title"><a href="rent.html">Rent Machines</div></a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, reprehenderit.</p>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="info-section">
+  <h1>About Us</h1>
+  <p>Some text about who we are and what we do.</p>
+  <p>Resize the browser window to see that this page is responsive by the way.</p>
 </div>
 
 
-<?php
-include('includes/footer.php');
-include('includes/scripts.php');
+</nav>
 
+<?php
+require_once 'footer.php';
 ?>
+
+
+</body>
+</html>

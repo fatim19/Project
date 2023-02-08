@@ -57,7 +57,7 @@ if(isset($_POST['provider']))
         <?php
             if($row['statuse'] == 'Accept')
             {
-              echo '<p><button>Add to Cart</button></p>';
+              echo '<p><button>Order</button></p>';
             }
             else
             {
