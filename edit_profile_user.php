@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
 <meta charset="UTF-8">
 <meta http-euiv="X-UA-Compatible"  content="IE-edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Registration</title>
+  <title>Edit profile</title>
   
   <link rel="stylesheet" href="css/customersignup.css">
   <link rel="stylesheet" href="css/style2.css">

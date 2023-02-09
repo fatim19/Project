@@ -114,13 +114,10 @@ if(isset($_POST['submit'])){
         <input type="email" name="email" required placeholder="Enter your email"> 
         <input type="password" name="password" required placeholder="Enter your password">
         <label for="Login as"><p>login as</p></label>
-  
-
-<input type="submit" name="submit" value="login now" class="form-btn">
-
-
-
-<p> don't have an account? <a href="customer_register.php"> resgister now</a></p>
+        <p> do you forget your password? <a href="edit_password.php"> reset now</a></p>
+        <input type="submit" name="submit" value="login now" class="form-btn">
+        
+        <p> don't have an account? <a href="customer_register.php"> resgister now</a></p>
 
 
 

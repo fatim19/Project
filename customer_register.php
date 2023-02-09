@@ -7,10 +7,11 @@ if(isset($_POST['submit'])){
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $quastion = mysqli_real_escape_string($conn, $_POST['quastion']);
     $pass = md5($_POST['password']);
     $cpass = md5($_POST['cpassword']);
 
-    $select = " SELECT * FROM user_form WHERE email = ' $email' && password = '$pass' ";
+    $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
     $result = mysqli_query($conn, $select);
     if(mysqli_num_rows($result) > 0){
        
@@ -21,7 +22,7 @@ if(isset($_POST['submit'])){
             $error[] = 'password not matched!';
   
         }else{
-            $insert = "INSERT INTO user_form(name, email, phone, password) VALUES('$name', '$email', '$phone', '$pass')";
+            $insert = "INSERT INTO user_form(name, email, phone, password, quastion) VALUES('$name', '$email', '$phone', '$pass', '$quastion)";
             mysqli_query($conn, $insert);
             header('location:index2.html');
         }
@@ -96,6 +97,7 @@ if(isset($_POST['submit'])){
         <input type="text" name="name" required placeholder="Enter your name">
         <input type="email" name="email" required placeholder="Enter your email">
         <input type="phone" name="phone" required placeholder="Enter your phone">
+        <input type="text" name="quastion" required placeholder="Enter your favorite color">
         <input type="password" name="password" required placeholder="Enter your password">
         <input type="password" name="cpassword" required placeholder="Confirm password">
        
