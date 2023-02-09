@@ -40,19 +40,18 @@
   
 </nav>
 <div class="container">
-        <h2>Rent page</h2>
+        <h2>Rent & Machines page</h2>
      <section class="Rent">
 <?php
 if(isset($_POST['provider']))
 $_SESSION['provider'] = $_POST['provider'];
 if(!empty($_SESSION['provider']))
 {
-  $select = mysqli_query($conn, "SELECT * FROM rent where id_p = '$_SESSION[provider]'");
-
-  while($row = mysqli_fetch_assoc($select)){
+  //rent
+  $select_rent = mysqli_query($conn, "SELECT * FROM rent where id_p = '$_SESSION[provider]'");
+  while($row = mysqli_fetch_assoc($select_rent)){
     $id = $row['id'];
 ?>
-
       <div class="card">
         <img src="img/<?php echo $row['image']; ?>" alt="camera" style="width: 250px;">
         <h1><?php echo $row['name']; ?></h1>
@@ -60,22 +59,14 @@ if(!empty($_SESSION['provider']))
         <form method="POST" action="rent.php">
         <?php
             if($row['statuse'] == 'Accept')
-            {
               echo '<p><button name="order" value="'.$id.'">Order</button></p>';
-            }
             elseif($row['statuse'] == 'Requested')
-            {
               echo '<p>Already requested</p>';
-            }
             else
-            {
               echo '<p>Unavailable</p>';
-            }
         ?>
         </form>
       </div>
-  
-
 <?php
     if(isset($_POST['order']))
     {
@@ -85,6 +76,42 @@ if(!empty($_SESSION['provider']))
       $insert = "INSERT INTO orders(id_rent, id_p, id_user, name, time, image) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]')";
       $upload = mysqli_query($conn,$insert);
       $update = mysqli_query($conn,"UPDATE rent SET statuse = 'Requested' WHERE id = '$row[id]'");
+      if($upload && $update){
+        echo 'The request has been created';
+        header("refresh:3;url= rent.php");
+      }
+      }
+    }
+}
+
+//machine
+$select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '$_SESSION[provider]'");
+  while($row = mysqli_fetch_assoc($select_machine)){
+    $id = $row['id'];
+?>
+      <div class="card">
+        <img src="img/<?php echo $row['image']; ?>" alt="camera" style="width: 250px;">
+        <h1><?php echo $row['name']; ?></h1>
+        <form method="POST" action="rent.php">
+        <?php
+            if($row['statuse'] == 'Accept')
+              echo '<p><button name="order" value="'.$id.'">Order</button></p>';
+            elseif($row['statuse'] == 'Requested')
+              echo '<p>Already requested</p>';
+            else
+              echo '<p>Unavailable</p>';
+        ?>
+        </form>
+      </div>
+<?php
+    if(isset($_POST['order']))
+    {
+      $time = date("H:i:s");
+      $select = mysqli_query($conn, "SELECT * FROM add_machines where id = '$_POST[order]'");
+      while($row = mysqli_fetch_assoc($select)){
+      $insert = "INSERT INTO orders(id_rent, id_p, id_user, name, time, image) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]')";
+      $upload = mysqli_query($conn,$insert);
+      $update = mysqli_query($conn,"UPDATE add_machines SET statuse = 'Requested' WHERE id = '$row[id]'");
       if($upload && $update){
         echo 'The request has been created';
         header("refresh:3;url= rent.php");

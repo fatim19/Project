@@ -15,7 +15,7 @@ if(isset($_POST['add_machine'])){
   if(empty($machine_name) || empty($machine_price) || empty($machine_time) || empty($machine_image)){
      $message[] = 'please fill out all';
   }else{
-    $insert = "INSERT INTO rent(id_p , name, price, time, image) VALUES('$_SESSION[id]','$machine_name', '$machine_price', '$machine_time', '$machine_image')";
+    $insert = "INSERT INTO rent(id_p , name, price, time, image) VALUES('$_SESSION[id_provider]','$machine_name', '$machine_price', '$machine_time', '$machine_image')";
     $upload = mysqli_query($conn,$insert);
     if($upload){
         move_uploaded_file($machine_image_tmp_name, $machine_image_folder);

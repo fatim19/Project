@@ -26,7 +26,7 @@
 				    <div id="mySidenav" class="sidenav">
 					<p class="logo"><span></span>Machines station</p>
 					<a href="index.php"class="icon-a"><i class="fa fa-home"></i>Home</a>
-					<a href="#"class="icon-a"><i class="fa fa-user icons"></i>   Profile</a>
+					<a href="edit_profile_provider.php"class="icon-a"><i class="fa fa-user icons"></i>   Profile</a>
 					<a href="machinesinformation.php"class="icon-a"><i class="fa fa-plus-circle"></i>  Add your Service</a>
 					<a href="machinesinformation.php"class="icon-a"><i class="fa fa-plus-circle"></i> Add rent Machines</a>
 					<a href="orders_provider.php"class="icon-a"><i class="fa fa-shopping-bag icons"></i>Order</a>
@@ -42,8 +42,13 @@
 		
 					<div class="col-div-6">
 					<div class="profile">
-					<img src="images/<?php echo $row['image']; ?>" class="pro-img" />
-					<p><?php echo $row['name']; ?><span>UI / UX DESIGNER</span></p>
+						<?php
+						    if($row['gender'] == 'Male')
+							echo '<img src="img/userman.jpg" class="pro-img" />';
+							elseif($row['gender'] == 'Female')
+							echo '<img src="img/userwomen.png" class="pro-img" />';
+						?>
+					<p><?php echo $row['name']; ?><span><?php echo $row['major']; ?></span></p>
 					</div>
 					</div>
 					<div class="clearfix"></div>

@@ -68,7 +68,6 @@
 
  if(isset($_POST[$id]))
  {
-  echo $id;
     $update = "UPDATE orders SET statuse ='".$_POST[$id]."' WHERE id = $id";
     $upload = mysqli_query($conn,$update);
     header('location:orders_provider.php');

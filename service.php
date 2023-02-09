@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    
+    <link rel="stylesheet" href="css/profile.css" type="text/css"/>
     <link rel="stylesheet" href="css/Aboutus.css">
     <link rel="stylesheet" href="css/style2.css">
     <?php require_once 'check_login_custom.php'; ?>
@@ -47,7 +47,12 @@
 <div class="row">
     <div class="column">
       <div class="card">
-        <img src="img/userman.jpg" alt="Jane" style="width:100%">
+        <?php
+						if($row['gender'] == 'Male')
+						echo '<img src="img/userman.jpg" class="pro-img" />';
+						elseif($row['gender'] == 'Female')
+						echo '<img src="img/userwomen.png" class="pro-img" />';
+				?>
         <div class="container">
           <h2><?php echo $row['name']; ?></h2>
           <p class="title">Printing 3D</p>

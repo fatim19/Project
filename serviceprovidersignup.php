@@ -7,6 +7,8 @@ if(isset($_POST['submit'])){
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $major = mysqli_real_escape_string($conn, $_POST['major']);
+    $quastion = mysqli_real_escape_string($conn, $_POST['quastion']);
     $city = $_POST['city'];
     $gender = $_POST['gender'];
     $pass = md5($_POST['password']);
@@ -23,10 +25,10 @@ if(isset($_POST['submit'])){
             $error[] = 'password not matched!';
   
         }else{
-            $insert = "INSERT INTO provider_form(name, email, phone, city, gender, password) VALUES('$name', '$email', '$phone', '$city', '$gender', '$pass')";
+            $insert = "INSERT INTO provider_form(name, email, phone, major, city, gender, password, quastion) VALUES('$name', '$email', '$phone', '$major', '$city', '$gender', '$pass', 'quastion')";
             mysqli_query($conn, $insert);
             move_uploaded_file($provider_image_tmp_name, $provider_image_folder);
-            header('location:profile.php');
+            header('location:profile_provider.php');
         }
 
     }
@@ -96,11 +98,12 @@ if(isset($_POST['submit'])){
 
         ?>
 
-        <input type="text" name="name" required placeholder="Enter your name">
-        <input type="email" name="email" required placeholder="Enter your email">
-        <input type="phone" name="phone" required placeholder="Enter your phone">
+        <input type="text" name="name" required placeholder="Enter your name" required>
+        <input type="email" name="email" required placeholder="Enter your email" required>
+        <input type="phone" name="phone" required placeholder="Enter your phone" required>
+        <input type="phone" name="major" required placeholder="Enter your major" required>
         <label for="city"><b>City</b></label>
-        <select name="city">
+        <select name="city" required>
         <option value="Riyadh">Riyadh</option>
   <option value="Jeddah">Jeddah</option>
   <option value="Al-Ahsa">Al-Ahsa</option>
@@ -126,13 +129,15 @@ if(isset($_POST['submit'])){
       </select>
       <label for="gender"><b>Gender</b></label>
 
-  <select name="gender">
+  <select name="gender" required>
     <option value="Female">Female</option>
     <option value="Male">Male</option>
      
   </select>
-        <input type="password" name="password" required placeholder="Enter your password">
-        <input type="password" name="cpassword" required placeholder="Confirm password">
+  <label for="gender"><b>Account</b></label>
+        <input type="password" name="password" required placeholder="Enter your password" required>
+        <input type="password" name="cpassword" required placeholder="Confirm password" required>
+        <input type="text" name="quastion" required placeholder="Enter your favorite color" required>
         
         
 <input type="submit" name="submit" value="register now" class="form-btn">

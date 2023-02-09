@@ -1,17 +1,33 @@
 <?php
 
 @include 'connect.php';
+require_once 'check_login_provider.php';
 
 if(isset($_POST['submit'])){
 
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $machine_version_year = mysqli_real_escape_string($conn, $_POST['version']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
-    
+    // $machine_image = $_FILES['machine_image']['name'];
+    // $machine_image_tmp_name = $_FILES['machine_image']['tmp_name']; 
+    // $machine_image_folder = 'img/' .$machine_image;
    
-    }
-    $select = " SELECT * FROM add_machines";
+	if(empty($name) || empty($machine_version_year) || empty($description)){
+		$message[] = 'please fill out all';
+	 }else{
+	   $insert = "INSERT INTO add_machines(id_p , name, version, description) VALUES('$_SESSION[id_provider]','$name', '$machine_version_year', '$description')";
+	   $upload = mysqli_query($conn,$insert);
+	   if($upload){
+		//    move_uploaded_file($machine_image_tmp_name, $machine_image_folder);
+		   $message[] = 'new machine added successfully';
+		   header('location:machinesinformation.php');
+	   }else{
+		   $message[] = 'could not add the product';
+   
+	   }
+	 }
 
+    }
       
 
 ?>
@@ -50,9 +66,19 @@ if(isset($_POST['submit'])){
 		
 		<div class="col-div-6">
 		<div class="profile">
-
-			<img src="images/user.png" class="pro-img" />
-			<p>Manoj Adhikari <span>UI / UX DESIGNER</span></p>
+			<?php
+			    $select = mysqli_query($conn, "SELECT * FROM provider_form where id = '$_SESSION[id_provider]'");
+                while($row = mysqli_fetch_assoc($select)){
+				if($row['gender'] == 'Male')
+				echo '<img src="img/userman.jpg" class="pro-img" />';
+				elseif($row['gender'] == 'Female')
+				echo '<img src="img/userwomen.png" class="pro-img" />';
+			?>
+			    <p><?php echo $row['name']; ?><span><?php echo $row['major']; ?></span></p>
+				<?php
+				}
+			?>
+			
 		</div>
 	</div>
 		<div class="clearfix"></div>
@@ -73,22 +99,21 @@ if(isset($_POST['submit'])){
 
    <div class="maa">
 
-   <form action="add_machines" method="post">
+   <form action="machinesinformation.php" method="post">
     <?php
     ?>
 <h1>Machine information</h1>
 
 <p>Machine name</p>
-<input type="text" placeholder="Enter Machine name" name="name"> 
+<input type="text" placeholder="Enter Machine name" name="name" required> 
 <p>Machine version year</p>
-<input type="text" placeholder="Enter version year" name="version">
+<input type="text" placeholder="Enter version year" name="version" required>
 <p>Short description about machine </p>
-<input type="text" placeholder="Enter Short description" name="description">
+<input type="text" placeholder="Enter Short description" name="description" required>
 
 <p>upload photo for your machine</p>
-<input type="file" placeholder="upload photo machine">
-
-<p></p><button>Submit</button></p>
+<input type="file" accept="image/png, image/jpeg, image/jpg" name="machine_image" required>
+<p></p><button name="submit">Submit</button></p>
 
   </form>
 

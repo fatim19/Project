@@ -53,7 +53,7 @@ require_once 'check_login_admin.php';
 <form action="" method="post">
   <h3> dachboard <h3>
 
-<table class="table">
+  <table class="table">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -100,6 +100,66 @@ $result = mysqli_query($conn, $select);
  {
   echo $id;
     $update = "UPDATE rent SET statuse ='".$_POST[$id]."' WHERE id = $id";
+    $upload = mysqli_query($conn,$update);
+    header('location:machines_status.php');
+ }
+  }
+ }
+ 
+ 
+    ?>
+
+  </tbody>
+</table>
+<br><br><br><br><br><br>
+<!--Machines information-->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Version</th>
+      <th scope="col">Description</th>
+      <th scope="col">Statuse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+
+$select = "SELECT * FROM add_machines";
+$result = mysqli_query($conn, $select);
+ if($result){
+    while($row=mysqli_fetch_assoc($result)){
+       $id=$row['id'];
+       $name=$row['name'];
+       $version=$row['version'];
+       $description=$row['description'];
+       $statuse=$row['statuse'];
+       
+       echo '<tr>
+       <th scope="row">'.$id.'</th>
+       <td>'.$name.'</td>
+       <td>'.$version.'</td>
+       <td>'.$description.'</td>
+       <td>';
+       if(!empty($statuse))
+        echo $statuse;
+       elseif(empty($statuse))
+       {
+       ?>
+       <form method="POST" action="machines_status.php">
+       <input type="submit" name="<?php echo $id; ?>" value="Accept">
+       <input type="submit" name="<?php echo $id; ?>" value="Reject">
+       </form>
+       <?php
+        echo '</td>';   
+        }
+        echo '</tr>';
+
+ if(isset($_POST[$id]))
+ {
+  echo $id;
+    $update = "UPDATE add_machines SET statuse ='".$_POST[$id]."' WHERE id = $id";
     $upload = mysqli_query($conn,$update);
     header('location:machines_status.php');
  }
