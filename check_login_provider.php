@@ -8,7 +8,7 @@
     else
     {
         echo 'Unauthorized entry!';
-        header('location:login.php');
+        header('location:logout.php');
         exit;
     }
 ?>

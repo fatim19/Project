@@ -13,12 +13,23 @@
 <ul> 
 
 <form action="connect.php" method="post">
-<a><img src="img/Machinestation.png" class="logo" href="index2.html"></a>
+<a href="index.php"><img src="img/Machinestation.png" class="logo" href="index2.html"></a>
 <li><a href="index2.html" class="split">Machines Station</a></li>
-<li><a href="login.php">Login</a></li>
-<li><div class="dropdown">
-    <button class="dropbtn">Signup
-<i class="fa fa-caret-down"></i>
+<?php
+    session_start();
+    if(empty($_SESSION['email']))
+    {
+      echo '
+      <li><a href="login.php">Login</a></li>
+      <li><div class="dropdown">
+      <button class="dropbtn">Signup<i class="fa fa-caret-down"></i>
+      ';
+    }
+    elseif(!empty($_SESSION['email']))
+    {
+      echo '<li><a href="logout.php">Logout</a></li>';
+    }
+?>
 <!-- start profile -->
 
 <!-- end profile -->

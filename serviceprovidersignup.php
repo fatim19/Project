@@ -11,7 +11,6 @@ if(isset($_POST['submit'])){
     $gender = $_POST['gender'];
     $pass = md5($_POST['password']);
     $cpass = md5($_POST['cpassword']);
-   
 
     $select = " SELECT * FROM provider_form WHERE email = ' $email' && password = '$pass' ";
     $result = mysqli_query($conn, $select);
@@ -26,6 +25,7 @@ if(isset($_POST['submit'])){
         }else{
             $insert = "INSERT INTO provider_form(name, email, phone, city, gender, password) VALUES('$name', '$email', '$phone', '$city', '$gender', '$pass')";
             mysqli_query($conn, $insert);
+            move_uploaded_file($provider_image_tmp_name, $provider_image_folder);
             header('location:profile.php');
         }
 
@@ -84,7 +84,7 @@ if(isset($_POST['submit'])){
 
   <div class="form-container"> 
 
-  <form action="" method="post">
+  <form action="" method="POST">
     <h3>Service provider Register<h3>
         <?php
         if(isset($error)){

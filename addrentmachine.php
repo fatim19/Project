@@ -50,7 +50,6 @@ if(isset($_GET['delete'])){
   <link rel="stylesheet" href="css/addrentmachine.css">
   <link rel="stylesheet" href="css/style2.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
 <body>
 

@@ -6,6 +6,7 @@
     <title> Rent page</title>
     <?php require_once 'check_login_custom.php'; ?>
     <?php require_once 'connect.php'; ?>
+    <?php $date_default_timezone = date_default_timezone_set("Asia/Riyadh"); ?>
     </head>
 
     <nav class="nav"> 
@@ -32,7 +33,7 @@
         <li><a href="catagory.html">catagory</a></li>
         <li><a href="FAQ.html">FAQ</a></li>
         <li><a href="About us.html">About Us</a></li>
-        
+        </form>
     </ul> 
     </div>
 
@@ -43,32 +44,54 @@
      <section class="Rent">
 <?php
 if(isset($_POST['provider']))
+$_SESSION['provider'] = $_POST['provider'];
+if(!empty($_SESSION['provider']))
 {
-  $select = mysqli_query($conn, "SELECT * FROM rent where id_p = '$_POST[provider]'");
+  $select = mysqli_query($conn, "SELECT * FROM rent where id_p = '$_SESSION[provider]'");
 
   while($row = mysqli_fetch_assoc($select)){
-
+    $id = $row['id'];
 ?>
 
       <div class="card">
         <img src="img/<?php echo $row['image']; ?>" alt="camera" style="width: 250px;">
         <h1><?php echo $row['name']; ?></h1>
         <p class="price"><?php echo $row['price']; ?></p>
+        <form method="POST" action="rent.php">
         <?php
             if($row['statuse'] == 'Accept')
             {
-              echo '<p><button>Order</button></p>';
+              echo '<p><button name="order" value="'.$id.'">Order</button></p>';
+            }
+            elseif($row['statuse'] == 'Requested')
+            {
+              echo '<p>Already requested</p>';
             }
             else
             {
               echo '<p>Unavailable</p>';
             }
         ?>
+        </form>
       </div>
   
 
 <?php
-};
+    if(isset($_POST['order']))
+    {
+      $time = date("H:i:s");
+      $select = mysqli_query($conn, "SELECT * FROM rent where id = '$_POST[order]'");
+      while($row = mysqli_fetch_assoc($select)){
+      $insert = "INSERT INTO orders(id_rent, id_p, id_user, name, time, image) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]')";
+      $upload = mysqli_query($conn,$insert);
+      $update = mysqli_query($conn,"UPDATE rent SET statuse = 'Requested' WHERE id = '$row[id]'");
+      if($upload && $update){
+        echo 'The request has been created';
+        header("refresh:3;url= rent.php");
+      }
+      }
+    }
+}
 }
 
 ?>

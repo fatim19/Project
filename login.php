@@ -10,31 +10,40 @@ if(isset($_POST['submit'])){
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $pass = md5($_POST['password']);
     //user
-    $select_user = "SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
+    $select_user = "SELECT * FROM user_form WHERE email = '$email' && password = '$pass'";
     $result_user = mysqli_query($conn, $select_user);
 
-    if(mysqli_num_rows($result_user) > 0){
-       
-     $row = mysqli_fetch_array($result_user);
-      $_SESSION['user_email'] = $row['email'];
-      $_SESSION['email'] = $email;
-      $_SESSION['user_name'] = $row['name'];
-      header('location:user_page.php');
-
     //provider
-    $select_provider = "SELECT * FROM provider_form WHERE email = '$email' && password = '$pass' ";
+    $select_provider = "SELECT * FROM provider_form WHERE email = '$email' && password = '$pass'";
     $result_provider = mysqli_query($conn, $select_provider);
 
-    if(mysqli_num_rows($result_provider) > 0){
-       
-      $row = mysqli_fetch_array($result_provider);
-      
+    //admin
+    $select_admin = "SELECT * FROM admin WHERE email = '$email' && password = '$pass'";
+    $result_admin = mysqli_query($conn, $select_admin);
+
+    if(mysqli_num_rows($result_user) > 0){
+      $row = mysqli_fetch_array($result_user);
+      $_SESSION['user_email'] = $row['email'];
+      $_SESSION['email'] = $email;
+      $_SESSION['id_user'] = $row['id'];
+      $_SESSION['user_name'] = $row['name'];
+      header('location:profile_user.php');
+    }
+    elseif(mysqli_num_rows($result_provider) > 0){
+       $row = mysqli_fetch_array($result_provider);
        $_SESSION['provider_email'] = $row['email'];
        $_SESSION['email'] = $email;
+       $_SESSION['id_provider'] = $row['id'];
        $_SESSION['provider_name'] = $row['name'];
-       header('location:profile.php');
-    
+       header('location:profile_provider.php');
   }
+  elseif(mysqli_num_rows($result_admin) > 0){
+      $row = mysqli_fetch_array($result_admin);
+      $_SESSION['admin_email'] = $row['email'];
+      $_SESSION['email'] = $email;
+      $_SESSION['id_admin'] = $row['id'];
+      $_SESSION['admin_name'] = $row['name'];
+      header('location:admin.php');
 }
   else
       $error[] = 'incorrect email or password!';

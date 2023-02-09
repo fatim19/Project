@@ -1,5 +1,5 @@
 <?php 
-
+require_once 'check_login_admin.php';
 ?> 
 
 <!DOCTYPE html>

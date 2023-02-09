@@ -1,5 +1,6 @@
 <?php
 include('includes/header.php');
+require_once 'check_login_admin.php';
 ?>
 
 <div class="container-fluid px-4">

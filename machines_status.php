@@ -1,7 +1,7 @@
 <?php
 
 @include 'connect.php';
-
+require_once 'check_login_admin.php';
 ?>
 
 <!DOCTYPE html>
@@ -72,15 +72,15 @@ $result = mysqli_query($conn, $select);
     while($row=mysqli_fetch_assoc($result)){
        $id=$row['id'];
        $name=$row['name'];
-       $email=$row['price'];
-       $phone=$row['time'];
+       $price=$row['price'];
+       $time=$row['time'];
        $statuse=$row['statuse'];
        
        echo '<tr>
        <th scope="row">'.$id.'</th>
        <td>'.$name.'</td>
-       <td>'.$email.'</td>
-       <td>'.$phone.'</td>
+       <td>'.$price.'</td>
+       <td>'.$time.'</td>
        <td>';
        if(!empty($statuse))
         echo $statuse;
