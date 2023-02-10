@@ -55,7 +55,7 @@
 				?>
         <div class="container">
           <h2><?php echo $row['name']; ?></h2>
-          <p class="title">Printing 3D</p>
+          <p class="title"><?php echo $row['major']; ?></p>
           <p>Phone:<?php echo $row['phone']; ?>
             <br>
             Email:<?php echo $row['email']; ?>

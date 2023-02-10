@@ -26,7 +26,7 @@
 				    <div id="mySidenav" class="sidenav">
 					<p class="logo"><span></span>Machines station</p>
 					<a href="index.php"class="icon-a"><i class="fa fa-home"></i>Home</a>
-					<a href="#"class="icon-a"><i class="fa fa-user icons"></i>   Profile</a>
+					<a href="edit_profile_user.php"class="icon-a"><i class="fa fa-user icons"></i>   Profile</a>
 					<a href="orders_user.php"class="icon-a"><i class="fa fa-shopping-bag icons"></i>Order</a>
 
 					</div>

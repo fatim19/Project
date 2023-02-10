@@ -1,16 +1,17 @@
 <?php
 
 @include 'connect.php';
-require_once 'check_login_user.php';
+require_once 'check_login_custom.php';
 
 if(isset($_POST['submit'])){
 
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $quastion = mysqli_real_escape_string($conn, $_POST['quastion']);
 
-    $insert = "INSERT INTO user_form(name, email, phone, password) VALUES('$name', '$email', '$phone', '$pass')";
-    mysqli_query($conn, $insert);
-    header('location:index2.html');
+    $update = "UPDATE user_form SET name = '$name', phone = '$phone', quastion = '$quastion' WHERE id = $_SESSION[id_user]";
+    mysqli_query($conn, $update);
+    header('location:profile_user.php');
 }
 
         ?>
@@ -40,6 +41,7 @@ if(isset($_POST['submit'])){
              <h3> Customer Register<h3>
              <input type="text" name="name" value="<?php echo $row['name']; ?>" required placeholder="Enter your name">
              <input type="phone" name="phone" value="<?php echo $row['phone']; ?>" required placeholder="Enter your phone">
+             <input type="phone" name="quastion" value="<?php echo $row['quastion']; ?>" required placeholder="Enter your favorite color">
              <input type="submit" name="submit" value="Edit" class="form-btn">
              </form>
         <?php }

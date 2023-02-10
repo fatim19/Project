@@ -64,7 +64,7 @@ if(isset($_POST['submit'])){
              <h3>Reset password<h3>
              <input type="email" name="email" required placeholder="Enter your email">
              <input type="text" name="quastion" required placeholder="Enter your favorite color">
-             <input type="password" name="password" required placeholder="Enter your password">
+             <input type="password" name="password" required placeholder="Enter your new password">
              <input type="password" name="cpassword" required placeholder="Confirm password">
              <input type="submit" name="submit" value="Edit" class="form-btn">
              <p><a href="login.php">back to login</a></p>
