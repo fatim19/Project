@@ -52,18 +52,18 @@
        <td>'.$name.'</td>
        <td>'.$time.'</td>
        <td>';
-       if(!empty($statuse))
-        echo $statuse;
-       elseif(empty($statuse))
+       if($statuse == 'Requested')
        {
-       ?>
-       <form method="POST" action="orders_provider.php">
-       <input type="submit" name="<?php echo $id; ?>" value="Accept">
-       <input type="submit" name="<?php echo $id; ?>" value="Reject">
-       </form>
-       <?php
-        echo '</td>';   
-        }
+        ?>
+        <form method="POST" action="orders_provider.php">
+        <input type="submit" name="<?php echo $id; ?>" value="Accept">
+        <input type="submit" name="<?php echo $id; ?>" value="Reject">
+        </form>
+        <?php
+         echo '</td>';   
+         }
+       else
+        echo $statuse;
         echo '</tr>';
 
  if(isset($_POST[$id]))
@@ -77,5 +77,6 @@
 ?>
       </tbody>
      </table>
+
     </body>
 </html>

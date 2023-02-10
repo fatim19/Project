@@ -83,7 +83,7 @@ if(isset($message)){
 
     <?php
 
-      $select = mysqli_query($conn, "SELECT * FROM rent");
+      $select = mysqli_query($conn, "SELECT * FROM rent WHERE statuse != 'Requested'");
 
     ?>
 

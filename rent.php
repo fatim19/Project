@@ -73,12 +73,11 @@ if(!empty($_SESSION['provider']))
       $time = date("H:i:s");
       $select = mysqli_query($conn, "SELECT * FROM rent where id = '$_POST[order]'");
       while($row = mysqli_fetch_assoc($select)){
-      $insert = "INSERT INTO orders(id_rent, id_p, id_user, name, time, image) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]')";
+      $insert = "INSERT INTO orders(id_rent, id_p, id_user, name, time, image, price, statuse) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]', '$row[price]', 'Requested')";
       $upload = mysqli_query($conn,$insert);
       $update = mysqli_query($conn,"UPDATE rent SET statuse = 'Requested' WHERE id = '$row[id]'");
       if($upload && $update){
-        echo 'The request has been created';
-        header("refresh:3;url= rent.php");
+        header("location:rent.php");
       }
       }
     }
@@ -92,6 +91,7 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
       <div class="card">
         <img src="img/<?php echo $row['image']; ?>" alt="camera" style="width: 250px;">
         <h1><?php echo $row['name']; ?></h1>
+        <h1><?php echo $row['price']; ?></h1>
         <form method="POST" action="rent.php">
         <?php
             if($row['statuse'] == 'Accept')
@@ -109,12 +109,11 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
       $time = date("H:i:s");
       $select = mysqli_query($conn, "SELECT * FROM add_machines where id = '$_POST[order]'");
       while($row = mysqli_fetch_assoc($select)){
-      $insert = "INSERT INTO orders(id_rent, id_p, id_user, name, time, image) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]')";
+      $insert = "INSERT INTO orders(id_rent, id_p, id_user, name, time, image, price) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]', '$row[price]')";
       $upload = mysqli_query($conn,$insert);
       $update = mysqli_query($conn,"UPDATE add_machines SET statuse = 'Requested' WHERE id = '$row[id]'");
       if($upload && $update){
-        echo 'The request has been created';
-        header("refresh:3;url= rent.php");
+        header("location:rent.php");
       }
       }
     }

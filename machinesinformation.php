@@ -8,6 +8,7 @@ if(isset($_POST['submit'])){
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $machine_version_year = mysqli_real_escape_string($conn, $_POST['version']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $price = $_POST['price'];
     // $machine_image = $_FILES['machine_image']['name'];
     // $machine_image_tmp_name = $_FILES['machine_image']['tmp_name']; 
     // $machine_image_folder = 'img/' .$machine_image;
@@ -15,7 +16,7 @@ if(isset($_POST['submit'])){
 	if(empty($name) || empty($machine_version_year) || empty($description)){
 		$message[] = 'please fill out all';
 	 }else{
-	   $insert = "INSERT INTO add_machines(id_p , name, version, description) VALUES('$_SESSION[id_provider]','$name', '$machine_version_year', '$description')";
+	   $insert = "INSERT INTO add_machines(id_p , name, version, description, price) VALUES('$_SESSION[id_provider]','$name', '$machine_version_year', '$description', '$price')";
 	   $upload = mysqli_query($conn,$insert);
 	   if($upload){
 		//    move_uploaded_file($machine_image_tmp_name, $machine_image_folder);
@@ -112,9 +113,11 @@ if(isset($_POST['submit'])){
 <input type="text" placeholder="Enter version year" name="version" required>
 <p>Short description about machine </p>
 <input type="text" placeholder="Enter Short description" name="description" required>
+<p>Price </p>
+<input type="text" placeholder="Enter price" name="price" required>
 
-<p>upload photo for your machine</p>
-<input type="file" accept="image/png, image/jpeg, image/jpg" name="machine_image" required>
+<!-- <p>upload photo for your machine</p>
+<input type="file" accept="image/png, image/jpeg, image/jpg" name="machine_image" required> -->
 <p></p><button name="submit">Submit</button></p>
 
   </form>

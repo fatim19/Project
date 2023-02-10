@@ -15,7 +15,6 @@
 <form action="connect.php" method="post">
 <a href="index.php"><img src="img/Machinestation.png" class="logo" href="index2.html"></a>
 <li><a href="FAQ.html">FAQ</a></li><?php
-    session_start();
     if(empty($_SESSION['email']))
     {
       echo '
