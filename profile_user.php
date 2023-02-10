@@ -27,7 +27,7 @@
 					<p class="logo"><span></span>Machines station</p>
 					<a href="index.php"class="icon-a"><i class="fa fa-home"></i>Home</a>
 					<a href="edit_profile_user.php"class="icon-a"><i class="fa fa-user icons"></i>   Profile</a>
-					<a href="orders_user.php"class="icon-a"><i class="fa fa-shopping-bag icons"></i>Order</a>
+					<a href="orders_user.php"class="icon-a"><i class="fa fa-shopping-bag icons"></i>My Order</a>
 
 					</div>
 					<div id="main">
@@ -40,7 +40,7 @@
 		
 					<div class="col-div-6">
 					<div class="profile">
-					<p><?php echo $row['name']; ?><span>UI / UX DESIGNER</span></p>
+					<p><?php echo $row['name']; ?></p>
 					</div>
 					</div>
 					<div class="clearfix"></div>

@@ -1,5 +1,10 @@
+
 <!Doctype HTML>
 <html>
+<?php
+require_once 'profile_user.php';
+?>
+
 	<head>
 		<title></title>
 		<link rel="stylesheet" href="css/profile.css" type="text/css"/>

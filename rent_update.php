@@ -79,8 +79,8 @@ if(isset($message)){
            <input type="number" placeholder="Enter machine price" value="<?php echo $row['price']; ?>" name="machine_price" class="box" required>
            <input type="time" placeholder="Enter avaible time to rent" value="<?php echo $row['time']; ?>" name="machine_time" class="box" required>
            <input type="file" accept="image/png, image/jpeg, image/jpg" name="machine_image" class="box" required>
-           <input type="submit" class="btn" name="update_machine" value="update machine">
-           <a href="addrentmachine.php" class="btn">Go back</a>
+           <input type="submit" class="btn1" name="update_machine" value="update machine">
+           <a href="addrentmachine.php" class="btn1">Go back</a>
 
          </form>
 

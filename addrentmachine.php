@@ -39,9 +39,12 @@ if(isset($_GET['delete'])){
 ?>
 
 <!DOCTYPE html>
+
 <html lang="en">
 
+
 <head>
+
 
 <meta charset="UTF-8">
 <meta http-euiv="X-UA-Compatible"  content="IE-edge">
@@ -72,7 +75,7 @@ if(isset($message)){
            <input type="number" placeholder="Enter machine price" name="machine_price" class="box" required>
            <input type="time" placeholder="Enter avaible time to rent" name="machine_time" class="box" required>
            <input type="file" accept="image/png, image/jpeg, image/jpg" name="machine_image" class="box" required>
-           <input type="submit" class="btn" name="add_machine" value="add a new machine">
+           <input type="submit" class="btn1" name="add_machine" value="add a new machine">
 
          </form>
     
