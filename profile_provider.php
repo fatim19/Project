@@ -28,8 +28,10 @@
 					<a href="index.php"class="icon-a"><i class="fa fa-home"></i>Home</a>
 					<a href="edit_profile_provider.php"class="icon-a"><i class="fa fa-user icons"></i>   Profile</a>
 					<a href="machinesinformation.php"class="icon-a"><i class="fa fa-plus-circle"></i>  Add your Service</a>
-					<a href="machinesinformation.php"class="icon-a"><i class="fa fa-plus-circle"></i> Add rent Machines</a>
+					<a href="addrentmachine.php"class="icon-a"><i class="fa fa-plus-circle"></i> Add rent Machines</a>
 					<a href="orders_provider.php"class="icon-a"><i class="fa fa-shopping-bag icons"></i>Order</a>
+					<a href="index.php"class="icon-a"><i class="fa fa-sign-out"></i>Log out</a>
+
 
 					</div>
 					<div id="main">

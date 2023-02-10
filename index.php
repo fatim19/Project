@@ -12,32 +12,27 @@ require_once 'head.php';
 
   <h3>Machaines Station</h3> <p>provid service and machiens</p>
   <p>enjoy with us</p></div>
-
-<nav class="midd">
-  
-  <div class="container">
-    <h2>Our Services</h2>
-    <section class="services">
-        <div class="card">
-            <div class="content">
-                <div class="icon"><i class="fa fa-laptop"></i></div>
-                <div class="title"><a href="service2.html">Services Provider</div></a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, reprehenderit.</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="content">
-                <div class="icon"><i class="fa fa-mobile"></i></div>
-                <div class="title"><a href="rent.html">Rent Machines</div></a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, reprehenderit.</p>
-            </div>
-        </div>
-    </section>
 </div>
+
 <div class="info-section">
-  <h1>About Us</h1>
-  <p>Some text about who we are and what we do.</p>
-  <p>Resize the browser window to see that this page is responsive by the way.</p>
+<div class="row">
+  <div class="column"><h3>Missio</h3>
+  <p>The machines Station helps the client reach the service provider quickly and easily and facilitates the providers by cutting the space between them and the client.</p>
+  </div>
+
+  <div class="column"><h3>Vision </h3>
+  <p>Assisting people throughout the world to experience a professional work</p>
+  </div>
+  <div class="column"><h3>Value</h3>
+  <p>Remarkable</p>
+  <p>Remarkable</p>
+  <p>Remarkable</p>
+  <p>Remarkable</p>
+  <p>Remarkable</p>
+
+  </div>
+
+</div>
 </div>
 
 

@@ -14,8 +14,7 @@
 
 <form action="connect.php" method="post">
 <a href="index.php"><img src="img/Machinestation.png" class="logo" href="index2.html"></a>
-<li><a href="index2.html" class="split">Machines Station</a></li>
-<?php
+<li><a href="FAQ.html">FAQ</a></li><?php
     session_start();
     if(empty($_SESSION['email']))
     {
@@ -39,8 +38,8 @@
       <a href="customer_register.php">Signup as a customer</a>
     </div>
   </li>
-  <li><a href="service2.html">Our service providers</a></li>
-<li><a href="FAQ.html">FAQ</a></li>
+  <li><a href="service.php">Our service providers</a></li>
+
 
 </ul> 
 </div>

@@ -172,9 +172,25 @@ li a:hover {
 
 .info-section {
   padding: 50px;
-  text-align: center;
   background-color: #DBD2CF;
   color: white;
+}
+
+.info-section .column {
+  float: left;
+  width: 33.33%;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.info-section .row .column .h3{
+  color:#9DB6CF ;
 }
 
 .footer {
