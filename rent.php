@@ -59,7 +59,7 @@ if(!empty($_SESSION['provider']))
         <form method="POST" action="rent.php">
         <?php
             if($row['statuse'] == 'Accept')
-              echo '<p><button name="order" value="'.$id.'">Order</button></p>';
+              echo '<p><button name="order_rent" value="'.$id.'">Order</button></p>';
             elseif($row['statuse'] == 'Requested')
               echo '<p>Already requested</p>';
             else
@@ -68,7 +68,7 @@ if(!empty($_SESSION['provider']))
         </form>
       </div>
 <?php
-    if(isset($_POST['order']))
+    if(isset($_POST['order_rent']))
     {
       $time = date("H:i:s");
       $select = mysqli_query($conn, "SELECT * FROM rent where id = '$_POST[order]'");
@@ -95,7 +95,7 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
         <form method="POST" action="rent.php">
         <?php
             if($row['statuse'] == 'Accept')
-              echo '<p><button name="order" value="'.$id.'">Order</button></p>';
+              echo '<p><button name="order_machine" value="'.$id.'">Order</button></p>';
             elseif($row['statuse'] == 'Requested')
               echo '<p>Already requested</p>';
             else
@@ -104,7 +104,7 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
         </form>
       </div>
 <?php
-    if(isset($_POST['order']))
+    if(isset($_POST['order_machine']))
     {
       $time = date("H:i:s");
       $select = mysqli_query($conn, "SELECT * FROM add_machines where id = '$_POST[order]'");
