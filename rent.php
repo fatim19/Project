@@ -52,8 +52,8 @@ if(!empty($_SESSION['provider']))
   $select_rent = mysqli_query($conn, "SELECT * FROM rent where id_p = '$_SESSION[provider]'");
   while($row = mysqli_fetch_assoc($select_rent)){
     $id = $row['id'];
-    $select_rent_statuse = mysqli_query($conn, "SELECT * FROM orders where id_rent = $id AND id_user = $_SESSION["id_user"] AND statuse = "Requested");
-    while($row = mysqli_fetch_assoc($select_rent_statuse)){
+    $select_rent_statuse = mysqli_query($conn, "SELECT * FROM orders where id_rent = $id AND id_user = $_SESSION[id_user] AND statuse = 'Requested'");
+    while($statuse = mysqli_fetch_assoc($select_rent_statuse)){
     $_SESSION["requested_rent"] = TRUE;
     }
 ?>
@@ -92,8 +92,8 @@ $_SESSION["requested_machine"] = FALSE;
 $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '$_SESSION[provider]'");
   while($row = mysqli_fetch_assoc($select_machine)){
     $id = $row['id'];
-    $select_machine_statuse = mysqli_query($conn, "SELECT * FROM orders where id_rent = $id AND id_user = $_SESSION["id_user"] AND statuse = "Requested");
-    while($row = mysqli_fetch_assoc($select_machine_statuse)){
+    $select_rent_statuse = mysqli_query($conn, "SELECT * FROM orders where id_rent = $id AND id_user = $_SESSION[id_user] AND statuse = 'Requested'");
+    while($statuse = mysqli_fetch_assoc($select_machine_statuse)){
     $_SESSION["requested_machine"] = TRUE;
     }
 ?>
