@@ -47,10 +47,15 @@ if(isset($_POST['provider']))
 $_SESSION['provider'] = $_POST['provider'];
 if(!empty($_SESSION['provider']))
 {
+    $_SESSION["requested_rent"] = FALSE;
   //rent
   $select_rent = mysqli_query($conn, "SELECT * FROM rent where id_p = '$_SESSION[provider]'");
   while($row = mysqli_fetch_assoc($select_rent)){
     $id = $row['id'];
+    $select_rent_statuse = mysqli_query($conn, "SELECT * FROM orders where id_rent = $id AND id_user = $_SESSION["id_user"] AND statuse = "Requested");
+    while($row = mysqli_fetch_assoc($select_rent_statuse)){
+    $_SESSION["requested_rent"] = TRUE;
+    }
 ?>
       <div class="card">
         <img src="img/<?php echo $row['image']; ?>" alt="camera" style="width: 250px;">
@@ -60,7 +65,7 @@ if(!empty($_SESSION['provider']))
         <?php
             if($row['statuse'] == 'Accept')
               echo '<p><button name="order_rent" value="'.$id.'">Order</button></p>';
-            elseif($row['statuse'] == 'Requested')
+            elseif($row['statuse'] == 'Requested' && $_SESSION["requested_rent"])
               echo '<p>Already requested</p>';
             else
               echo '<p>Unavailable</p>';
@@ -82,11 +87,15 @@ if(!empty($_SESSION['provider']))
       }
     }
 }
-
+$_SESSION["requested_machine"] = FALSE;
 //machine
 $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '$_SESSION[provider]'");
   while($row = mysqli_fetch_assoc($select_machine)){
     $id = $row['id'];
+    $select_machine_statuse = mysqli_query($conn, "SELECT * FROM orders where id_rent = $id AND id_user = $_SESSION["id_user"] AND statuse = "Requested");
+    while($row = mysqli_fetch_assoc($select_machine_statuse)){
+    $_SESSION["requested_machine"] = TRUE;
+    }
 ?>
       <div class="card">
         <img src="img/<?php echo $row['image']; ?>" alt="camera" style="width: 250px;">
@@ -96,7 +105,7 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
         <?php
             if($row['statuse'] == 'Accept')
               echo '<p><button name="order_machine" value="'.$id.'">Order</button></p>';
-            elseif($row['statuse'] == 'Requested')
+            elseif($row['statuse'] == 'Requested' && $_SESSION["requested_machine"])
               echo '<p>Already requested</p>';
             else
               echo '<p>Unavailable</p>';
