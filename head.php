@@ -38,7 +38,7 @@
     </div>
   </li>
   <li><a href="service.php">Our service providers</a></li>
-
+</form>
 
 </ul> 
 </div>
