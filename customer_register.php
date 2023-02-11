@@ -22,9 +22,9 @@ if(isset($_POST['submit'])){
             $error[] = 'password not matched!';
   
         }else{
-            $insert = "INSERT INTO user_form(name, email, phone, password, quastion) VALUES('$name', '$email', '$phone', '$pass', '$quastion)";
+            $insert = "INSERT INTO user_form(name, email, phone, password, quastion) VALUES('$name', '$email', '$phone', '$pass', '$quastion')";
             mysqli_query($conn, $insert);
-            header('location:index2.html');
+            header('location:index.php');
         }
 
     }
