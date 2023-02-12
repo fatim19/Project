@@ -87,13 +87,15 @@ require_once 'profile_user.php';
      <?php
          $count = 0;
          $total = 0;
+         $x = FALSE;
          $select = "SELECT * FROM orders WHERE statuse = 'Confirmation'";
          $result = mysqli_query($conn,$select);
          while($row=mysqli_fetch_assoc($result)){
-          $x = 0;
+          $x = TRUE;
           $total += $row['price'];
           $count++;
-          if($x == 0)
+         }
+          if($x)
           {
             $x++;
             ?>
@@ -111,7 +113,6 @@ require_once 'profile_user.php';
                 </table>
             <?php
           }
-         }
      ?>
      <thead>
     </body>
