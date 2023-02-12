@@ -1,10 +1,6 @@
 <!Doctype HTML>
 	<html>
-	<?php
-    require_once 'orders_provider.php';
-    ?>
-
-	
+		
 	<head>
 		<title></title>
 		<link rel="stylesheet" href="css/profile.css" type="text/css"/>
