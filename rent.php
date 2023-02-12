@@ -63,9 +63,9 @@ if(!empty($_SESSION['provider']))
         <p class="price"><?php echo $row['price']; ?></p>
         <form method="POST" action="rent.php">
         <?php
-            if($row['statuse'] == 'Accept')
+            if($row['statuse'] == 'Accept' && $_SESSION["requested_rent"] == FALSE)
               echo '<p><button name="order_rent" value="'.$id.'">Order</button></p>';
-            elseif($row['statuse'] == 'Requested' && $_SESSION["requested_rent"])
+            elseif($_SESSION["requested_rent"] == TRUE)
               echo '<p>Already requested</p>';
             else
               echo '<p>Unavailable</p>';
@@ -76,12 +76,11 @@ if(!empty($_SESSION['provider']))
     if(isset($_POST['order_rent']))
     {
       $time = date("H:i:s");
-      $select = mysqli_query($conn, "SELECT * FROM rent where id = '$_POST[order]'");
+      $select = mysqli_query($conn, "SELECT * FROM rent where id = '$_POST[order_rent]'");
       while($row = mysqli_fetch_assoc($select)){
       $insert = "INSERT INTO orders(id_rent, id_p, id_user, name, time, image, price, statuse) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]', '$row[price]', 'Requested')";
       $upload = mysqli_query($conn,$insert);
-      $update = mysqli_query($conn,"UPDATE rent SET statuse = 'Requested' WHERE id = '$row[id]'");
-      if($upload && $update){
+      if($upload){
         header("location:rent.php");
       }
       }
@@ -92,7 +91,7 @@ $_SESSION["requested_machine"] = FALSE;
 $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '$_SESSION[provider]'");
   while($row = mysqli_fetch_assoc($select_machine)){
     $id = $row['id'];
-    $select_rent_statuse = mysqli_query($conn, "SELECT * FROM orders where id_rent = $id AND id_user = $_SESSION[id_user] AND statuse = 'Requested'");
+    $select_machine_statuse = mysqli_query($conn, "SELECT * FROM orders where id_rent = $id AND id_user = $_SESSION[id_user] AND statuse = 'Requested'");
     while($statuse = mysqli_fetch_assoc($select_machine_statuse)){
     $_SESSION["requested_machine"] = TRUE;
     }
@@ -103,9 +102,9 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
         <h1><?php echo $row['price']; ?></h1>
         <form method="POST" action="rent.php">
         <?php
-            if($row['statuse'] == 'Accept')
+            if($row['statuse'] == 'Accept' && $_SESSION["requested_machine"] == FALSE)
               echo '<p><button name="order_machine" value="'.$id.'">Order</button></p>';
-            elseif($row['statuse'] == 'Requested' && $_SESSION["requested_machine"])
+            elseif($_SESSION["requested_machine"] == TRUE)
               echo '<p>Already requested</p>';
             else
               echo '<p>Unavailable</p>';
@@ -116,12 +115,11 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
     if(isset($_POST['order_machine']))
     {
       $time = date("H:i:s");
-      $select = mysqli_query($conn, "SELECT * FROM add_machines where id = '$_POST[order]'");
+      $select = mysqli_query($conn, "SELECT * FROM add_machines where id = '$_POST[order_machine]'");
       while($row = mysqli_fetch_assoc($select)){
-      $insert = "INSERT INTO orders(id_rent, id_p, id_user, name, time, image, price) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]', '$row[price]')";
+      $insert = "INSERT INTO orders(id_rent, id_p, id_user, name, time, image, price, statuse) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]', '$row[price]', 'Requested')";
       $upload = mysqli_query($conn,$insert);
-      $update = mysqli_query($conn,"UPDATE add_machines SET statuse = 'Requested' WHERE id = '$row[id]'");
-      if($upload && $update){
+      if($upload){
         header("location:rent.php");
       }
       }
