@@ -1,4 +1,8 @@
 <html lang="en">
+  
+<?php
+require_once 'head.php';
+?>
   <head>
 
     <meta charset="UTF-8">

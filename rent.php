@@ -53,13 +53,10 @@ if(!empty($_SESSION['provider']))
   while($row = mysqli_fetch_assoc($select_rent)){
     $id = $row['id'];
     $select_rent_statuse = mysqli_query($conn, "SELECT * FROM orders where id_rent = $id AND id_user = $_SESSION[id_user] AND statuse = 'Requested'");
-<<<<<<< HEAD
     while($row = mysqli_fetch_assoc($select_rent_statuse)){
-=======
-    while($statuse = mysqli_fetch_assoc($select_rent_statuse)){
->>>>>>> 44e98d32625f11f301dd83c8ecd9ece634fa9f4b
     $_SESSION["requested_rent"] = TRUE;
     }
+  
 ?>
       <div class="card">
         <img src="img/<?php echo $row['image']; ?>" alt="camera" style="width: 250px;">
@@ -96,11 +93,7 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
   while($row = mysqli_fetch_assoc($select_machine)){
     $id = $row['id'];
     $select_machine_statuse = mysqli_query($conn, "SELECT * FROM orders where id_rent = $id AND id_user = $_SESSION[id_user] AND statuse = 'Requested'");
-<<<<<<< HEAD
-    while($row = mysqli_fetch_assoc($select_machine_statuse)){
-=======
     while($statuse = mysqli_fetch_assoc($select_machine_statuse)){
->>>>>>> 44e98d32625f11f301dd83c8ecd9ece634fa9f4b
     $_SESSION["requested_machine"] = TRUE;
     }
 ?>
