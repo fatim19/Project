@@ -53,7 +53,7 @@ if(!empty($_SESSION['provider']))
   while($row = mysqli_fetch_assoc($select_rent)){
     $id = $row['id'];
     $select_rent_statuse = mysqli_query($conn, "SELECT * FROM orders where id_rent = $id AND id_user = $_SESSION[id_user] AND statuse = 'Requested'");
-    while($row = mysqli_fetch_assoc($select_rent_statuse)){
+    while($statuse = mysqli_fetch_assoc($select_rent_statuse)){
     $_SESSION["requested_rent"] = TRUE;
     }
   
@@ -98,8 +98,9 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
     }
 ?>
       <div class="card">
-        <img src="img/<?php echo $row['image']; ?>" alt="camera" style="width: 250px;">
+        <!-- <img src="img/<?php echo $row['image']; ?>" alt="camera" style="width: 250px;"> -->
         <h1><?php echo $row['name']; ?></h1>
+        <h1><?php echo $row['description']; ?></h1>
         <h1><?php echo $row['price']; ?></h1>
         <form method="POST" action="rent.php">
         <?php
