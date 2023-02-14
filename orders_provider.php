@@ -3,6 +3,9 @@
 <?php
 require_once 'profile_provider.php';
 ?>
+<?php 
+    ob_start();
+?>
 
 	<head>
 		<title></title>
@@ -80,6 +83,8 @@ require_once 'profile_provider.php';
 ?>
       </tbody>
      </table>
-
+     <?php
+    ob_end_flush();
+    ?>
     </body>
 </html>     

@@ -34,54 +34,45 @@ require_once 'profile_user.php';
      <table class="table">
      <thead>
     <tr>
-      <th scope="col">ID</th>
+    <th scope="col">ID</th>
+      <th scope="col">ID Provider</th>
+      <th scope="col">ID User</th>
+      <th scope="col">ID Rent</th>
+      <th scope="col">ID Machine</th>
       <th scope="col">Name</th>
       <th scope="col">Time</th>
-      <th scope="col">Description</th>
+      <th scope="col">Price</th>
       <th scope="col">Statuse</th>
-      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
 <?php
-  $select = "SELECT DISTINCT o.id, o.name, o.time, o.statuse, m.description, o.id_machines FROM add_machines m , orders o ,rent r WHERE ( m.id = o.id_machines OR r.id = o.id_rent ) AND o.id_user = $_SESSION[id_user]";
+  $select = "SELECT * FROM orders";
   $result = mysqli_query($conn, $select);
   if($result){
     while($row=mysqli_fetch_assoc($result)){
-       $id=$row['id'];
-       $name=$row['name'];
-       $time=$row['time'];
-       if($row['id_machines'] != NULL)
-       $description=$row['description'];
-       else
-       $description="";
-       $statuse=$row['statuse'];
+        $id=$row['id'];
+        $id_p=$row['id_p'];
+        $id_user=$row['id_user'];
+        $id_rent=$row['id_rent'];
+        $id_machines=$row['id_machines'];
+        $name=$row['name'];
+        $time=$row['time'];
+        $price=$row['price'];
+        $statuse=$row['statuse'];
        
        echo '
        <tr>
        <th scope="row">'.$id.'</th>
+       <td>'.$id_p.'</td>
+       <td>'.$id_user.'</td>
+       <td>'.$id_rent.'</td>
+       <td>'.$id_machines.'</td>
        <td>'.$name.'</td>
        <td>'.$time.'</td>
-       <td>'.$description.'</td>
+       <td>'.$price.'</td>
        <td>'.$statuse.'</td>
-       <td>';
-       if($row['statuse'] == 'Accept')
-       {
-       ?>
-       <form method="POST" action="orders_user.php">
-       <input type="submit" name="<?php echo $id; ?>" value="Confirmation">
-       <input type="submit" name="<?php echo $id; ?>" value="Cancele">
-       </form>
-       <?php
-       }
-       echo '</td>';
-       echo '</tr>';
-        if(isset($_POST[$id]))
-        {
-          $update = "UPDATE orders SET statuse ='".$_POST[$id]."' WHERE id = $id";
-          $upload = mysqli_query($conn,$update);
-          header('location:orders_user.php');
-        }
+       </tr>';
   }
  }
 ?>
