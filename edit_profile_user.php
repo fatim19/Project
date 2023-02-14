@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
              while($row = mysqli_fetch_assoc($select)){
                 ?>
              <form action="" method="post">
-             <h3> Customer Register<h3>
+             <h3> Edit Your Profile<h3>
              <input type="text" name="name" value="<?php echo $row['name']; ?>" required placeholder="Enter your name">
              <input type="phone" name="phone" value="<?php echo $row['phone']; ?>" required placeholder="Enter your phone">
              <input type="phone" name="quastion" value="<?php echo $row['quastion']; ?>" required placeholder="Enter your favorite color">

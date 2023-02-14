@@ -39,6 +39,9 @@ if(isset($_POST['submit'])){
 
 <!DOCTYPE html>
 <html lang="en">
+<?php
+require_once 'head.php';
+?>
 
 <head>
 
@@ -47,42 +50,13 @@ if(isset($_POST['submit'])){
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>provider Registration</title>
   
-  <link rel="stylesheet" href="css/customersignup.css">
+  <link rel="stylesheet" href="css/providersignup.css">
   <link rel="stylesheet" href="css/style2.css">
   
 </head>
 <body>
 
-<nav class="nav"> 
 
-        <div class="nav-header">
-        
-    <div class="nav-links">
-       <ul> 
-        
-        
-        <a><img src="img/Machinestation.png" class="logo" href="index2.html"></a>
-        <li><a href="index2.html" class="split">Machines Station</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><div class="dropdown">
-            <button class="dropbtn">Signup
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="serviceprovidersignup.php">Signup as a service provider</a>
-              <a href="customer_register.php">Signup as a customer</a>
-            </div>
-          </li>
-        <li><a href="service type.html">Services</a></li>
-        <li><a href="catagory.html">catagory</a></li>
-        <li><a href="FAQ.html">FAQ</a></li>
-        <li><a href="About us.html">About Us</a></li>
-        
-    </ul> 
-    </div>
-
-  
-</nav>
 
   <div class="form-container"> 
 
@@ -134,7 +108,6 @@ if(isset($_POST['submit'])){
     <option value="Male">Male</option>
      
   </select>
-  <label for="gender"><b>Account</b></label>
         <input type="password" name="password" required placeholder="Enter your password" required>
         <input type="password" name="cpassword" required placeholder="Confirm password" required>
         <input type="text" name="quastion" required placeholder="Enter your favorite color" required>
