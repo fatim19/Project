@@ -92,7 +92,7 @@ $_SESSION["requested_machine"] = FALSE;
 $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '$_SESSION[provider]'");
   while($row = mysqli_fetch_assoc($select_machine)){
     $id = $row['id'];
-    $select_machine_statuse = mysqli_query($conn, "SELECT * FROM orders where id_rent = $id AND id_user = $_SESSION[id_user] AND statuse = 'Requested'");
+    $select_machine_statuse = mysqli_query($conn, "SELECT * FROM orders where id_machines = $id AND id_user = $_SESSION[id_user] AND statuse = 'Requested'");
     while($statuse = mysqli_fetch_assoc($select_machine_statuse)){
     $_SESSION["requested_machine"] = TRUE;
     }
@@ -119,7 +119,7 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
       $time = date("H:i:s");
       $select = mysqli_query($conn, "SELECT * FROM add_machines where id = '$_POST[order_machine]'");
       while($row = mysqli_fetch_assoc($select)){
-      $insert = "INSERT INTO orders(id_rent, id_p, id_user, name, time, image, price, statuse) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]', '$row[price]', 'Requested')";
+      $insert = "INSERT INTO orders(id_machines, id_p, id_user, name, time, image, price, statuse) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]', '$row[price]', 'Requested')";
       $upload = mysqli_query($conn,$insert);
       if($upload){
         header("location:rent.php");
