@@ -88,7 +88,6 @@ require_once 'head.php';
        
         <input type="email" name="email" required placeholder="Enter your email"> 
         <input type="password" name="password" required placeholder="Enter your password">
-        <label for="Login as"><p>login as</p></label>
         <p> do you forget your password? <a href="edit_password.php"> reset now</a></p>
         <input type="submit" name="submit" value="login now" class="form-btn">
         
@@ -98,6 +97,12 @@ require_once 'head.php';
 
   </form>
   </div>
+
+  
+<?php
+require_once 'footer.php';
+?>
+
 
 </body>
 </html>

@@ -20,33 +20,7 @@ require_once 'check_login_admin.php';
 </head>
 <body>
 
-<nav class="nav"> 
 
-        <div class="nav-header">
-        
-    <div class="nav-links">
-       <ul> 
-        
-        
-        <a><img src="img/Machinestation.png" class="logo" href="index2.html"></a>
-        <li><a href="index2.html" class="split">Machines Station</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><div class="dropdown">
-            <button class="dropbtn">Signup
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="serviceprovidersignup.html">Signup as a service provider</a>
-              <a href="customersignup.html">Signup as a customer</a>
-            </div>
-          </li>
-        <li><a href="service type.html">Services</a></li>
-        <li><a href="catagory.html">catagory</a></li>
-        <li><a href="FAQ.html">FAQ</a></li>
-        <li><a href="About us.html">About Us</a></li>
-        
-    </ul> 
-    </div>
 
 <div class="container">
 
@@ -54,6 +28,7 @@ require_once 'check_login_admin.php';
   <h3> dachboard <h3>
 
   <table class="table">
+  <h3> Rent Machines Requests <h3>
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -114,6 +89,7 @@ $result = mysqli_query($conn, $select);
 <br><br><br><br><br><br>
 <!--Machines information-->
 <table class="table">
+<h3> Services Provide Requests <h3>
   <thead>
     <tr>
       <th scope="col">ID</th>

@@ -45,6 +45,9 @@ if(isset($_POST['submit'])){
 
 <!DOCTYPE html>
 <html lang="en">
+<?php
+require_once 'head.php';
+?>
 
 <head>
 
@@ -71,6 +74,9 @@ if(isset($_POST['submit'])){
              </form>
     </div>
 </div>
+<?php
+require_once 'footer.php';
+?>
 
 </body>
 </html>

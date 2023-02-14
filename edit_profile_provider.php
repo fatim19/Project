@@ -29,6 +29,7 @@ if(isset($_POST['submit'])){
 
 <!DOCTYPE html>
 <html lang="en">
+    
 
 <head>
 
@@ -47,7 +48,7 @@ if(isset($_POST['submit'])){
              while($row = mysqli_fetch_assoc($select)){
                 ?>
              <form action="" method="POST">
-                 <h3>Service provider Register<h3>
+                 <h3>edit your profile<h3>
 
         <input type="text" name="name" value="<?php echo $row['name']; ?>" required placeholder="Enter your name" required>
         <input type="phone" name="phone" value="<?php echo $row['phone']; ?>" required placeholder="Enter your phone" required>
@@ -84,7 +85,6 @@ if(isset($_POST['submit'])){
     <option value="Male">Male</option>
      
   </select>
-  <label for="gender"><b>Account</b></label>
         <input type="text" name="quastion" value="<?php echo $row['quastion']; ?>" required placeholder="Enter your favorite color" required>
         
         

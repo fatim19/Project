@@ -38,19 +38,22 @@ require_once 'profile_user.php';
       <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Time</th>
+      <th scope="col">Description</th>
       <th scope="col">Statuse</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
 <?php
-  $select = " SELECT * FROM orders WHERE id_user = $_SESSION[id_user]";
+  $select = "SELECT o.id, o.name, o.time, o.statuse, m.description FROM add_machines m , orders o ,rent r WHERE m.id = o.id_rent AND 
+  r.id = o.id_rent AND o.id_user = $_SESSION[id_user]";
   $result = mysqli_query($conn, $select);
   if($result){
     while($row=mysqli_fetch_assoc($result)){
        $id=$row['id'];
        $name=$row['name'];
        $time=$row['time'];
+       $description=$row['description'];
        $statuse=$row['statuse'];
        
        echo '
@@ -58,6 +61,7 @@ require_once 'profile_user.php';
        <th scope="row">'.$id.'</th>
        <td>'.$name.'</td>
        <td>'.$time.'</td>
+       <td>'.$description.'</td>
        <td>'.$statuse.'</td>
        <td>';
        if($row['statuse'] == 'Accept')

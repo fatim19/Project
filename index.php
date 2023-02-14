@@ -24,11 +24,11 @@ require_once 'head.php';
   <p>Assisting people throughout the world to experience a professional work</p>
   </div>
   <div class="column"><h3>Value</h3>
-  <p>Remarkable</p>
-  <p>Remarkable</p>
-  <p>Remarkable</p>
-  <p>Remarkable</p>
-  <p>Remarkable</p>
+  <p>Clarity</p>
+  <p>Quality</p>
+  <p>Excellence</p>
+  <p>Innovation</p>
+  <p>Change</p>
 
   </div>
 

@@ -105,7 +105,7 @@ if(isset($_POST['submit'])){
    <form action="machinesinformation.php" method="post">
     <?php
     ?>
-<h1>Machine information</h1>
+<h1>Add your service</h1>
 
 <p>Machine name</p>
 <input type="text" placeholder="Enter Machine name" name="name" required> 
