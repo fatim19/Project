@@ -33,3 +33,9 @@ table th td{
 table td{
     text-align: center; 
 }
+
+.btn{
+    background-color: aqua;
+    border-radius: 8px;
+    color: black;
+}

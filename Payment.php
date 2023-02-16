@@ -63,7 +63,7 @@
 
 
 
-<p></p><button name="pay">PLACE YOUR ORFER</button></p>
+<p></p><button name="pay">PLACE YOUR ORDER</button></p>
 </form>
 <a href="index.php" class="backBtn">Cancel and Go Back to home</a>
 <?php

@@ -1,8 +1,6 @@
 <!Doctype HTML>
 <html>
-<?php
-require_once 'profile_user.php';
-?>
+
 <?php 
     ob_start();
 ?>

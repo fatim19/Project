@@ -88,20 +88,20 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
         ?>
         </form>
       </div>
-<?php
+<?php 
+  }
     if(isset($_POST['order_machine']))
     {
       $time = date("H:i:s");
       $select = mysqli_query($conn, "SELECT * FROM add_machines where id = '$_POST[order_machine]'");
-      while($row = mysqli_fetch_assoc($select)){
+      while($row = mysqli_fetch_assoc($select))
       $insert = "INSERT INTO orders(id_machines, id_p, id_user, name, time, image, price, statuse) VALUES('$row[id]','$row[id_p]', '$_SESSION[id_user]', '$row[name]', '$time', '$row[image]', '$row[price]', 'Requested')";
       $upload = mysqli_query($conn,$insert);
       if($upload){
         header("location:rent.php");
       }
-      }
+      
     }
-}
 }
 
 ?>

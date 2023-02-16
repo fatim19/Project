@@ -62,10 +62,12 @@ $result = mysqli_query($conn, $select);
        elseif(empty($statuse))
        {
        ?>
+      
        <form method="POST" action="machines_status.php">
        <input type="submit" name="<?php echo $id; ?>" value="Accept">
-       <input type="submit" name="<?php echo $id; ?>" value="Reject">
+       <input type="submit" name="<?php echo $id; ?>" class="btn" value="Reject">
        </form>
+       
        <?php
         echo '</td>';   
         }
