@@ -89,6 +89,7 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
         </form>
       </div>
 <?php
+  }
     if(isset($_POST['order_machine']))
     {
       $time = date("H:i:s");
@@ -101,7 +102,6 @@ $select_machine = mysqli_query($conn, "SELECT * FROM add_machines where id_p = '
       }
       }
     }
-}
 }
 
 ?>
