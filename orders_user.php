@@ -31,6 +31,7 @@ require_once 'profile_user.php';
 <div class="head">
 <div class="container">
      <section class="Rent">
+      <!-- machines -->
      <table class="table">
      <thead>
     <tr>
@@ -44,7 +45,7 @@ require_once 'profile_user.php';
   </thead>
   <tbody>
 <?php
-  $select = "SELECT DISTINCT o.id, o.name, o.time, o.statuse, m.description, o.id_machines FROM add_machines m , orders o ,rent r WHERE ( m.id = o.id_machines OR r.id = o.id_rent ) AND o.id_user = $_SESSION[id_user]";
+  $select = "SELECT DISTINCT o.id, o.name, o.time, o.statuse, m.description, o.id_machines FROM add_machines m , orders o WHERE id_machines IS NOT NULL AND m.id = o.id_machines AND o.id_user = $_SESSION[id_user]";
   $result = mysqli_query($conn, $select);
   if($result){
     while($row=mysqli_fetch_assoc($result)){
@@ -89,6 +90,61 @@ require_once 'profile_user.php';
      </table>
 
      <br><br><br><br><br><br><br>
+
+     <!-- rent -->
+     <table class="table">
+     <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Time</th>
+      <th scope="col">Statuse</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+<?php
+  $select = "SELECT DISTINCT id, name, time, statuse FROM orders o WHERE id_rent IS NOT NULL AND id_user = $_SESSION[id_user]";
+  $result = mysqli_query($conn, $select);
+  if($result){
+    while($row=mysqli_fetch_assoc($result)){
+       $id=$row['id'];
+       $name=$row['name'];
+       $time=$row['time'];
+       $statuse=$row['statuse'];
+       
+       echo '
+       <tr>
+       <th scope="row">'.$id.'</th>
+       <td>'.$name.'</td>
+       <td>'.$time.'</td>
+       <td>'.$statuse.'</td>
+       <td>';
+       if($row['statuse'] == 'Accept')
+       {
+       ?>
+       <form method="POST" action="orders_user.php">
+       <input type="submit" name="<?php echo $id; ?>" value="Confirmation">
+       <input type="submit" name="<?php echo $id; ?>" value="Cancele">
+       </form>
+       <?php
+       }
+       echo '</td>';
+       echo '</tr>';
+        if(isset($_POST[$id]))
+        {
+          $update = "UPDATE orders SET statuse ='".$_POST[$id]."' WHERE id = $id";
+          $upload = mysqli_query($conn,$update);
+          header('location:orders_user.php');
+        }
+  }
+ }
+?>
+      </tbody>
+     </table>
+
+     <br><br><br><br><br><br><br>
+     <!-- pay -->
      <?php
          $count = 0;
          $total = 0;
